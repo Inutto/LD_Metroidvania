@@ -798,7 +798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Top: 1
-  Bottom: 2
+  Bottom: 1
   Left: 1
   Right: 1
 --- !u!114 &8779570709587733408
@@ -853,7 +853,7 @@ MonoBehaviour:
   AbilityPermitted: 1
   BlockingMovementStates: 
   BlockingConditionStates: 
-  WalkSpeed: 6
+  WalkSpeed: 7
   MovementSpeedMultiplier: 1
   AbilityMovementSpeedMultiplier: 1
   PushSpeedMultiplier: 1
@@ -922,7 +922,7 @@ MonoBehaviour:
   MinimumInputThreshold: 0.1
   FlipCharacterIfNeeded: 1
   AutoCorrectTrajectory: 1
-  DashCooldown: 0.3
+  DashCooldown: 1
   LimitedDashes: 1
   SuccessiveDashAmount: 1
   SuccessiveDashesLeft: 1
@@ -966,13 +966,13 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   NumberOfJumps: 1
-  JumpHeight: 4.4
-  JumpRestrictions: 2
+  JumpHeight: 4.5
+  JumpRestrictions: 0
   ResetCameraOffsetOnJump: 0
   CanJumpDownOneWayPlatforms: 1
   JumpIsProportionalToThePressTime: 1
-  JumpMinimumAirTime: 0.2
-  JumpReleaseForceFactor: 2
+  JumpMinimumAirTime: 0.5
+  JumpReleaseForceFactor: 5
   CoyoteTime: 1
   InputBufferDuration: 0.2
   OneWayPlatformsJumpCollisionOffDuration: 0.3
