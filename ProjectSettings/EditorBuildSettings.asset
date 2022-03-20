@@ -222,6 +222,6 @@ EditorBuildSettings:
     path: Assets/CorgiEngine/ThirdParty/MoreMountains/MMTools/Tools/MMSceneLoading/LoadingScreens/MMAdditiveLoadingScreenSimple.unity
     guid: 945e5b97212e8e74ebcd35bddde3970c
   - enabled: 1
-    path: Assets/Scenes/Gym_Corgi.unity
+    path: Assets/Scenes/Level1_TwinTower.unity
     guid: 56c5c3047780f124bad43dc1dfaf0fb9
   m_configObjects: {}
