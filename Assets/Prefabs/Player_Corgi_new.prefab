@@ -710,7 +710,7 @@ MonoBehaviour:
     Gravity: -30
     FallMultiplier: 1
     AscentMultiplier: 1
-    MaxVelocity: {x: 100, y: 100}
+    MaxVelocity: {x: 100, y: 20}
     SpeedAccelerationOnGround: 20
     UseSeparateDecelerationOnGround: 0
     SpeedDecelerationOnGround: 100
