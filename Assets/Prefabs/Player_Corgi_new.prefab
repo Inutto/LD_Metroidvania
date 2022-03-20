@@ -713,7 +713,7 @@ MonoBehaviour:
     MaxVelocity: {x: 100, y: 100}
     SpeedAccelerationOnGround: 20
     UseSeparateDecelerationOnGround: 0
-    SpeedDecelerationOnGround: 20
+    SpeedDecelerationOnGround: 100
     SpeedAccelerationInAir: 5
     UseSeparateDecelerationInAir: 0
     SpeedDecelerationInAir: 5
@@ -860,9 +860,9 @@ MonoBehaviour:
   StateSpeedMultiplier: 1
   FlipCharacterToFaceDirection: 1
   ReadInput: 1
-  InstantAcceleration: 0
+  InstantAcceleration: 1
   InputThreshold: 0.1
-  AirControl: 1
+  AirControl: 0.9
   AllowFlipInTheAir: 1
   ActiveAfterDeath: 0
   TouchTheGroundFeedback: {fileID: 0}
@@ -971,9 +971,9 @@ MonoBehaviour:
   ResetCameraOffsetOnJump: 0
   CanJumpDownOneWayPlatforms: 1
   JumpIsProportionalToThePressTime: 1
-  JumpMinimumAirTime: 0.5
-  JumpReleaseForceFactor: 5
-  CoyoteTime: 1
+  JumpMinimumAirTime: 0.2
+  JumpReleaseForceFactor: 1.4
+  CoyoteTime: 0.3
   InputBufferDuration: 0.2
   OneWayPlatformsJumpCollisionOffDuration: 0.3
   MovingPlatformsJumpCollisionOffDuration: 0.05
