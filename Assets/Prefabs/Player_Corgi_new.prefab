@@ -1169,6 +1169,7 @@ GameObject:
   - component: {fileID: 8664968557874587192}
   - component: {fileID: 4210200413256138393}
   - component: {fileID: 8035744221693471676}
+  - component: {fileID: 1375457943413134777}
   m_Layer: 9
   m_Name: Player_Corgi_new
   m_TagString: Player
@@ -2088,6 +2089,28 @@ MonoBehaviour:
   DamageTakenWhenCrushed: 10
   DamageTakenFlickerDuration: 0.2
   DamageTakenInvincibilityDuration: 0.6
+--- !u!114 &1375457943413134777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779570709594126854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb358c8c351ce74b87688f8e0931a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AbilityStartFeedbacks: {fileID: 0}
+  AbilityStopFeedbacks: {fileID: 0}
+  AbilityPermitted: 1
+  BlockingMovementStates: 
+  BlockingConditionStates: 
+  MinimumDamageFallHeight: 20
+  MaximumDamageFallHeight: 30
+  MinimumDamage: 30
+  MaximumDamage: 50
+  ClampedDamage: 1
 --- !u!1 &8844362939063745580
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnEnemy : MonoBehaviour
+public class SpawnZone : MonoBehaviour
 {
-
 
     private Collider2D triggerArea;
     [Header("Enemy Prefab")]
@@ -14,6 +13,16 @@ public class SpawnEnemy : MonoBehaviour
     [Header("Spawn Position")]
     public Transform[] spawnPosition;
     public GameObject[] enemies;
+
+
+    [Header("Debug")]
+    public bool drawGizmos;
+    public Color GizmosZoneColor;
+    public Color GizmosObjectColor;
+
+    protected Vector3 _gizmoSize;
+    public float drawZ;
+    public float drawObjectRadius;
 
     // Start is called before the first frame update
     void Start()
@@ -67,4 +76,40 @@ public class SpawnEnemy : MonoBehaviour
             }
         }
     }
+
+#if UNITY_EDITOR
+    /// <summary>
+    /// Draws gizmos to show the shape of the zone
+    /// </summary>
+    protected virtual void OnDrawGizmos()
+    {
+        if (!drawGizmos)
+        {
+            return;
+        }
+
+
+        var _triggerArea = GetComponent<Collider2D>();
+
+        // Draw The Cube Area
+        Gizmos.color = GizmosZoneColor;
+
+
+        _gizmoSize.x = _triggerArea.bounds.size.x;
+        _gizmoSize.y = _triggerArea.bounds.size.y;
+        _gizmoSize.z = drawZ;
+        Gizmos.DrawCube(_triggerArea.bounds.center, _gizmoSize);
+
+
+        Gizmos.color = GizmosObjectColor;
+        var _childCount = transform.childCount;
+        for(int i = 0; i< _childCount; ++i)
+        {
+            var child = transform.GetChild(i);
+            Gizmos.DrawSphere(child.position, drawObjectRadius);
+        }
+        
+        
+    }
+#endif
 }
