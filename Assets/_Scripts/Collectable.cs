@@ -29,6 +29,11 @@ public class Collectable : MonoBehaviour
             GUIManager.Instance.RefreshPoints();
 
             _anim.SetTrigger("Fade");
+
+
+            // Recover Health
+            var health = collision.GetComponent<Character>().CharacterHealth;
+            collision.GetComponent<Character>().CharacterHealth.SetHealth(health.CurrentHealth + points, null);
             
 
         }
