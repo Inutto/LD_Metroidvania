@@ -732,8 +732,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentHealth: 0
-  InitialHealth: 20
-  MaximumHealth: 20
+  InitialHealth: 30
+  MaximumHealth: 30
   Invulnerable: 0
   TemporarilyInvulnerable: 0
   PostDamageInvulnerable: 0

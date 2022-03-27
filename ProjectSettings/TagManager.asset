@@ -9,6 +9,8 @@ TagManager:
   - Background
   - NoMask
   - Spawns
+  - Enemy
+  - Pickup
   layers:
   - Default
   - TransparentFX

@@ -5,20 +5,25 @@ using UnityEngine;
 public class SpawnZone : MonoBehaviour
 {
 
+    public enum SpawnType {ENEMY, PICKUP };
+
     private Collider2D triggerArea;
-    [Header("Enemy Prefab")]
+    [Header("Prefab")]
     public GameObject enemy;
+    public GameObject pickup;
 
 
     [Header("Spawn Position")]
     public Transform[] spawnPosition;
-    public GameObject[] enemies;
+    public List<GameObject> spawnsList = new List<GameObject>();
+    public Dictionary<Transform, string> spawnInfoDic = new Dictionary<Transform, string>();
 
 
     [Header("Debug")]
     public bool drawGizmos;
     public Color GizmosZoneColor;
-    public Color GizmosObjectColor;
+    public Color enemyColor;
+    public Color pickupColor;
 
     protected Vector3 _gizmoSize;
     public float drawZ;
@@ -28,39 +33,52 @@ public class SpawnZone : MonoBehaviour
     void Start()
     {
         triggerArea = GetComponent<Collider2D>();
-        InitiateSpawnPos();
-        InitiateEnemies();
+        InitiateSpawnInfoDic();
     }
 
 
-    private void InitiateSpawnPos()
+    private void InitiateSpawnInfoDic()
     {
         int childCount = transform.childCount;
-        spawnPosition = new Transform[childCount];
-        for(int i = 0; i < childCount; ++i)
+        for (int i = 0; i < childCount; ++i)
         {
-            spawnPosition[i] = transform.GetChild(i);
+            var spawnTrans = transform.GetChild(i);
+            var spawnType = spawnTrans.tag;
+            spawnInfoDic[spawnTrans] = spawnType;
         }
-
-        
     }
 
-    private void InitiateEnemies()
-    {
-        int childCount = transform.childCount;
-        enemies = new GameObject[childCount];
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
-            for(int i = 0; i < spawnPosition.Length; ++i)
+            foreach(var info in spawnInfoDic)
             {
-                enemies[i] = Instantiate(
-                    enemy,
-                    spawnPosition[i].position,
-                    spawnPosition[i].rotation);
+                // Initialize Info
+                var trans = info.Key;
+                var type = info.Value;
+                GameObject prefab = null;
+
+                // Switch
+                if(type == "Enemy")
+                {
+                    prefab = enemy;
+                } else if (type == "Pickup")
+                {
+                    prefab = pickup;
+                }
+
+                // Inst
+                if(prefab != null)
+                {
+                    var newSpawn = Instantiate(
+                    prefab,
+                    trans.position,
+                    trans.rotation);
+
+                    spawnsList.Add(newSpawn);
+                }
             }
         }
     }
@@ -69,11 +87,11 @@ public class SpawnZone : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            for (int i = 0; i < spawnPosition.Length; ++i)
+            foreach(var spawn in spawnsList)
             {
-                Destroy(enemies[i]);
-                enemies[i] = null;
+                if (spawn != null) Destroy(spawn);
             }
+            spawnsList.Clear();
         }
     }
 
@@ -88,26 +106,37 @@ public class SpawnZone : MonoBehaviour
             return;
         }
 
-
         var _triggerArea = GetComponent<Collider2D>();
 
         // Draw The Cube Area
         Gizmos.color = GizmosZoneColor;
-
 
         _gizmoSize.x = _triggerArea.bounds.size.x;
         _gizmoSize.y = _triggerArea.bounds.size.y;
         _gizmoSize.z = drawZ;
         Gizmos.DrawCube(_triggerArea.bounds.center, _gizmoSize);
 
+        // Draw The Spawn Area
 
-        Gizmos.color = GizmosObjectColor;
-        var _childCount = transform.childCount;
-        for(int i = 0; i< _childCount; ++i)
+        if(spawnInfoDic == null) InitiateSpawnInfoDic();
+
+        foreach (var info in spawnInfoDic)
         {
-            var child = transform.GetChild(i);
-            Gizmos.DrawSphere(child.position, drawObjectRadius);
+            var trans = info.Key;
+            var type = info.Value;
+            if(type == "Enemy")
+            {
+                Gizmos.color = enemyColor;
+            } else if(type == "Pickup")
+            {
+                Gizmos.color = pickupColor;
+            }
+
+            Gizmos.DrawSphere(trans.position, drawObjectRadius);
         }
+
+
+
         
         
     }
