@@ -2632,8 +2632,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3224487533805007248, guid: 47a59218d249c974f850ceb62dd559ac,
         type: 3}
+      propertyPath: Knockback
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224487533805007248, guid: 47a59218d249c974f850ceb62dd559ac,
+        type: 3}
+      propertyPath: DamageCaused
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224487533805007248, guid: 47a59218d249c974f850ceb62dd559ac,
+        type: 3}
       propertyPath: TimeBetweenUses
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224487533805007248, guid: 47a59218d249c974f850ceb62dd559ac,
+        type: 3}
+      propertyPath: KnockbackForce.x
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3224487533805007248, guid: 47a59218d249c974f850ceb62dd559ac,
         type: 3}
