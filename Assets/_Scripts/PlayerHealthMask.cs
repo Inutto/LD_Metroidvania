@@ -50,7 +50,7 @@ public class PlayerHealthMask : MonoBehaviour
         
         canFind = true;
 
-        if (character != null) text.text = character.name;
+        // if (character != null) text.text = character.name;
 
     }
 

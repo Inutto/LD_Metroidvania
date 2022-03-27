@@ -1260,14 +1260,14 @@ MonoBehaviour:
     Quantized: 0
     TargetBPM: 120
   DebugActive: 0
-  Sfx: {fileID: 8300000, guid: d8f0c95dc7ff638459f9384dff998ebd, type: 3}
+  Sfx: {fileID: 8300000, guid: c4fe2906b4101d946a6f4e3bcb52bff5, type: 3}
   RandomSfx: []
   TestButton: 0
   TestStopButton: 0
   MinVolume: 1
   MaxVolume: 1
-  MinPitch: 1
-  MaxPitch: 1
+  MinPitch: 1.3
+  MaxPitch: 0.8
   MmSoundManagerTrack: 0
   ID: 0
   AudioGroup: {fileID: 0}
@@ -2020,7 +2020,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8779570709594126854}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f59e06702d6be45948936bd909420d61, type: 3}
   m_Name: 
