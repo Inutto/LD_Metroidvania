@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5779248286182290290}
   - component: {fileID: 4522751206677927102}
   - component: {fileID: 3913302357532116739}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Hurt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 133540289045660947}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Feedbacks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 3440636517900992561}
   - component: {fileID: 7098125284288035399}
   - component: {fileID: 1580379441106702592}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SpriteRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 3580196525562999436}
   - component: {fileID: 8060117787538003046}
   - component: {fileID: 9151899316498694608}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Jump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 1895641302912306551}
   - component: {fileID: 4605282880242923625}
   - component: {fileID: 6684666784110040042}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Death
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -688,7 +688,7 @@ GameObject:
   - component: {fileID: 2995990224805921878}
   - component: {fileID: 9086358524527827015}
   - component: {fileID: 7325363075030420235}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Walk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -974,7 +974,7 @@ GameObject:
   m_Component:
   - component: {fileID: 861103145237669232}
   - component: {fileID: 4049040948649367202}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Trail
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1114,7 +1114,7 @@ GameObject:
   - component: {fileID: 7452420151524435947}
   - component: {fileID: 6012468936822255036}
   - component: {fileID: 4500412761704542630}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1329,7 +1329,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6477525627967221142}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1365,7 +1365,7 @@ GameObject:
   - component: {fileID: 4925726520150109315}
   - component: {fileID: 262661400181340094}
   - component: {fileID: 6735954525085145695}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: AttackVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2447,8 +2447,8 @@ MonoBehaviour:
   BlockingConditionStates: 
   MinimumDamageFallHeight: 20
   MaximumDamageFallHeight: 30
-  MinimumDamage: 30
-  MaximumDamage: 50
+  MinimumDamage: 20
+  MaximumDamage: 34
   ClampedDamage: 1
 --- !u!1 &8844362939063745580
 GameObject:
@@ -2461,7 +2461,7 @@ GameObject:
   - component: {fileID: 1587951147826754565}
   - component: {fileID: 4582729274326661449}
   - component: {fileID: 8576177928907801716}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Land
   m_TagString: Untagged
   m_Icon: {fileID: 0}
