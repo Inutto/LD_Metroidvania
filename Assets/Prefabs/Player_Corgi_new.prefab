@@ -1469,6 +1469,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _anim: {fileID: 262661400181340094}
+  coldDown: 0.5
+  canAttack: 1
 --- !u!1 &8779570709594126854
 GameObject:
   m_ObjectHideFlags: 0
@@ -2059,7 +2061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a07c6668aa55403790d27b575279549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AbilityStartFeedbacks: {fileID: 7452420151524435947}
+  AbilityStartFeedbacks: {fileID: 0}
   AbilityStopFeedbacks: {fileID: 0}
   AbilityPermitted: 1
   BlockingMovementStates: 
@@ -2628,6 +2630,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8779570709594609502}
     m_Modifications:
+    - target: {fileID: 3224487533805007248, guid: 47a59218d249c974f850ceb62dd559ac,
+        type: 3}
+      propertyPath: TimeBetweenUses
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224487533805007248, guid: 47a59218d249c974f850ceb62dd559ac,
+        type: 3}
+      propertyPath: Animators.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224487533805007248, guid: 47a59218d249c974f850ceb62dd559ac,
+        type: 3}
+      propertyPath: WeaponUsedMMFeedback
+      value: 
+      objectReference: {fileID: 7452420151524435947}
+    - target: {fileID: 3224487533805007248, guid: 47a59218d249c974f850ceb62dd559ac,
+        type: 3}
+      propertyPath: UseAnimationParameter
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224487533805007248, guid: 47a59218d249c974f850ceb62dd559ac,
+        type: 3}
+      propertyPath: Animators.Array.data[0]
+      value: 
+      objectReference: {fileID: 262661400181340094}
+    - target: {fileID: 3224487533805007248, guid: 47a59218d249c974f850ceb62dd559ac,
+        type: 3}
+      propertyPath: StartAnimationParameter
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224487533805007248, guid: 47a59218d249c974f850ceb62dd559ac,
+        type: 3}
+      propertyPath: SingleUseAnimationParameter
+      value: Attack
+      objectReference: {fileID: 0}
     - target: {fileID: 3252893909108740124, guid: 47a59218d249c974f850ceb62dd559ac,
         type: 3}
       propertyPath: m_RootOrder
