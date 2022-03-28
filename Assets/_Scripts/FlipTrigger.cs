@@ -18,7 +18,7 @@ public class FlipTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!hasTriggered)
+        if (!hasTriggered && collision.tag == "Player")
         {
             _spriteRender.flipX = true;
             hasTriggered = true;
