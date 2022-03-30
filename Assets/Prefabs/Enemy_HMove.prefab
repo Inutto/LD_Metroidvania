@@ -835,7 +835,7 @@ MonoBehaviour:
   PushSpeedMultiplier: 1
   StateSpeedMultiplier: 1
   FlipCharacterToFaceDirection: 1
-  ReadInput: 1
+  ReadInput: 0
   InstantAcceleration: 0
   InputThreshold: 0.1
   AirControl: 1

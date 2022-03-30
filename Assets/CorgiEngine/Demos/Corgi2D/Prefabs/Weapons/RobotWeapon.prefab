@@ -39,7 +39,7 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000010447279758}
-  serializedVersion: 6
+  serializedVersion: 7
   lengthInSec: 0.2
   simulationSpeed: 1
   stopAction: 0
@@ -2147,6 +2147,62 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+  LifetimeByEmitterSpeedModule:
+    enabled: 0
+    m_Curve:
+      serializedVersion: 2
+      minMaxState: 1
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: -0.8
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 0.2
+          inSlope: -0.8
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    m_Range: {x: 0, y: 1}
   ForceModule:
     enabled: 0
     x:
@@ -3541,19 +3597,20 @@ ParticleSystem:
     range: {x: 0, y: 100}
   CollisionModule:
     enabled: 0
-    serializedVersion: 3
+    serializedVersion: 4
     type: 0
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
     multiplyColliderForceByCollisionAngle: 1
-    plane0: {fileID: 0}
-    plane1: {fileID: 0}
-    plane2: {fileID: 0}
-    plane3: {fileID: 0}
-    plane4: {fileID: 0}
-    plane5: {fileID: 0}
+    m_Planes:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     m_Dampen:
       serializedVersion: 2
       minMaxState: 0
@@ -3727,17 +3784,20 @@ ParticleSystem:
     interiorCollisions: 1
   TriggerModule:
     enabled: 0
-    collisionShape0: {fileID: 0}
-    collisionShape1: {fileID: 0}
-    collisionShape2: {fileID: 0}
-    collisionShape3: {fileID: 0}
-    collisionShape4: {fileID: 0}
-    collisionShape5: {fileID: 0}
+    serializedVersion: 2
     inside: 1
     outside: 0
     enter: 0
     exit: 0
+    colliderQueryMode: 0
     radiusScale: 1
+    primitives:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   SubModule:
     serializedVersion: 2
     enabled: 0
@@ -4679,7 +4739,7 @@ ParticleSystem:
 --- !u!199 &199000013608266620
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4691,11 +4751,12 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0e1495cd2b1257b419c4c5668cd82472, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4703,6 +4764,7 @@ ParticleSystemRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -4732,6 +4794,8 @@ ParticleSystemRenderer:
   m_EnableGPUInstancing: 0
   m_ApplyActiveColorSpace: 0
   m_AllowRoll: 1
+  m_FreeformStretching: 0
+  m_RotateWithStretchDirection: 1
   m_VertexStreams: 0001030405
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
@@ -4787,11 +4851,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d7ce0b8cf4b34859b9e359283b2e7f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TriggerMode: 1
+  TriggerMode: 0
   DelayBeforeUse: 0
   DelayBeforeUseReleaseInterruption: 1
-  TimeBetweenUses: 0.8
+  TimeBetweenUses: 4
   TimeBetweenUsesReleaseInterruption: 1
+  Interruptable: 0
+  InitializeOnStart: 0
   MagazineBased: 0
   MagazineSize: 30
   AutoReload: 0
@@ -4805,12 +4871,14 @@ MonoBehaviour:
   FlipValue: {x: -1, y: 1, z: 1}
   LeftHandHandle: {fileID: 0}
   RightHandHandle: {fileID: 0}
-  ParticleEffects: []
   ModifyMovementWhileEquipped: 0
   PermanentMovementMultiplier: 0
   ModifyMovementWhileAttacking: 0
   MovementMultiplier: 0
-  PreventAllMovementWhileInUse: 0
+  PreventHorizontalGroundMovementWhileInUse: 0
+  PreventHorizontalAirMovementWhileInUse: 0
+  SetForceWhileInUse: 0
+  ForceWhileInUse: {x: 0, y: 0}
   Animators: []
   EquippedAnimationParameter: 
   IdleAnimationParameter: 
@@ -4825,27 +4893,57 @@ MonoBehaviour:
   ReloadStopAnimationParameter: 
   WeaponAngleAnimationParameter: 
   WeaponAngleRelativeAnimationParameter: 
-  WeaponStartSfx: {fileID: 0}
-  WeaponUsedSfx: {fileID: 0}
-  WeaponStopSfx: {fileID: 0}
-  WeaponReloadSfx: {fileID: 0}
-  WeaponReloadNeededSfx: {fileID: 0}
   WeaponStartMMFeedback: {fileID: 2251207812961010051}
   WeaponUsedMMFeedback: {fileID: 6000673923898840068}
   WeaponStopMMFeedback: {fileID: 3890799383735535461}
   WeaponReloadMMFeedback: {fileID: 0}
   WeaponReloadNeededMMFeedback: {fileID: 0}
-  ScreenShake: 0
-  ShakeParameters: {x: 1.5, y: 0.5, z: 1}
-  ScreenFlash: 0
-  InitializeOnStart: 0
-  Interruptable: 0
+  WeaponOnHitFeedback: {fileID: 0}
+  WeaponOnMissFeedback: {fileID: 0}
+  WeaponOnHitDamageableFeedback: {fileID: 0}
+  WeaponOnHitNonDamageableFeedback: {fileID: 0}
+  WeaponOnKillFeedback: {fileID: 0}
+  ApplyRecoilOnUse: 0
+  RecoilOnUseProperties:
+    RecoilForceGrounded: 10
+    RecoilForceAirborne: 10
+    RecoilStyle: 2
+    Delay: 0
+    RecoilFeedback: {fileID: 0}
+  ApplyRecoilOnHitDamageable: 0
+  RecoilOnHitDamageableProperties:
+    RecoilForceGrounded: 10
+    RecoilForceAirborne: 10
+    RecoilStyle: 2
+    Delay: 0
+    RecoilFeedback: {fileID: 0}
+  ApplyRecoilOnHitNonDamageable: 0
+  RecoilOnHitNonDamageableProperties:
+    RecoilForceGrounded: 10
+    RecoilForceAirborne: 10
+    RecoilStyle: 2
+    Delay: 0
+    RecoilFeedback: {fileID: 0}
+  ApplyRecoilOnMiss: 0
+  RecoilOnMissProperties:
+    RecoilForceGrounded: 10
+    RecoilForceAirborne: 10
+    RecoilStyle: 2
+    Delay: 0
+    RecoilFeedback: {fileID: 0}
+  ApplyRecoilOnKill: 0
+  RecoilOnKillProperties:
+    RecoilForceGrounded: 10
+    RecoilForceAirborne: 10
+    RecoilStyle: 2
+    Delay: 0
+    RecoilFeedback: {fileID: 0}
   ProjectileSpawnTransform: {fileID: 0}
   ProjectileSpawnOffset: {x: 0.7, y: 0, z: 0}
   ProjectilesPerShot: 1
   Spread: {x: 0, y: 0, z: 0}
   RotateWeaponOnSpread: 0
-  RandomSpread: 1
+  RandomSpread: 0
   SpawnPosition: {x: -4.9250145, y: -13.861907, z: 0}
 --- !u!114 &114587324304491438
 MonoBehaviour:
@@ -4861,6 +4959,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MutualizeWaitingPools: 0
   NestWaitingPool: 1
+  NestUnderThis: 0
   GameObjectToPool: {fileID: 100000, guid: d2a90e8be32b24ea5b1ca3d9c3d7d298, type: 3}
   PoolSize: 20
   PoolCanExpand: 1
@@ -4882,7 +4981,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4000012249117258
 Transform:
   m_ObjectHideFlags: 0
@@ -4904,7 +5003,7 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000014251668054}
-  serializedVersion: 6
+  serializedVersion: 7
   lengthInSec: 0.2
   simulationSpeed: 1
   stopAction: 0
@@ -6936,6 +7035,62 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+  LifetimeByEmitterSpeedModule:
+    enabled: 0
+    m_Curve:
+      serializedVersion: 2
+      minMaxState: 1
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: -0.8
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 0.2
+          inSlope: -0.8
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    m_Range: {x: 0, y: 1}
   ForceModule:
     enabled: 0
     x:
@@ -8330,19 +8485,20 @@ ParticleSystem:
     range: {x: 0, y: 100}
   CollisionModule:
     enabled: 1
-    serializedVersion: 3
+    serializedVersion: 4
     type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
     multiplyColliderForceByCollisionAngle: 1
-    plane0: {fileID: 0}
-    plane1: {fileID: 0}
-    plane2: {fileID: 0}
-    plane3: {fileID: 0}
-    plane4: {fileID: 0}
-    plane5: {fileID: 0}
+    m_Planes:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     m_Dampen:
       serializedVersion: 2
       minMaxState: 0
@@ -8516,17 +8672,20 @@ ParticleSystem:
     interiorCollisions: 1
   TriggerModule:
     enabled: 0
-    collisionShape0: {fileID: 0}
-    collisionShape1: {fileID: 0}
-    collisionShape2: {fileID: 0}
-    collisionShape3: {fileID: 0}
-    collisionShape4: {fileID: 0}
-    collisionShape5: {fileID: 0}
+    serializedVersion: 2
     inside: 1
     outside: 0
     enter: 0
     exit: 0
+    colliderQueryMode: 0
     radiusScale: 1
+    primitives:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   SubModule:
     serializedVersion: 2
     enabled: 0
@@ -9468,7 +9627,7 @@ ParticleSystem:
 --- !u!199 &199000013030617118
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -9480,11 +9639,12 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 36059a6b5a5000a469004894f2d1d69e, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9492,6 +9652,7 @@ ParticleSystemRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -9521,6 +9682,8 @@ ParticleSystemRenderer:
   m_EnableGPUInstancing: 0
   m_ApplyActiveColorSpace: 0
   m_AllowRoll: 1
+  m_FreeformStretching: 0
+  m_RotateWithStretchDirection: 1
   m_VertexStreams: 0001030405
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
@@ -9584,6 +9747,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Feedbacks: []
   InitializationMode: 2
+  SafeMode: 3
+  Direction: 0
+  AutoChangeDirectionOnEnd: 0
+  AutoPlayOnStart: 0
+  AutoPlayOnEnable: 0
+  DurationMultiplier: 1
+  DisplayFullDurationDetails: 0
+  CooldownDuration: 0
+  InitialDelay: 0
+  CanPlayWhileAlreadyPlaying: 1
+  FeedbacksIntensity: 1
+  Events:
+    TriggerMMFeedbacksEvents: 0
+    TriggerUnityEvents: 1
+    OnPlay:
+      m_PersistentCalls:
+        m_Calls: []
+    OnPause:
+      m_PersistentCalls:
+        m_Calls: []
+    OnResume:
+      m_PersistentCalls:
+        m_Calls: []
+    OnRevert:
+      m_PersistentCalls:
+        m_Calls: []
+    OnComplete:
+      m_PersistentCalls:
+        m_Calls: []
   DebugActive: 0
 --- !u!1 &3464511696116078736
 GameObject:
@@ -9638,6 +9830,35 @@ MonoBehaviour:
   - {fileID: 7365020027144303199}
   - {fileID: 85514345881160410}
   InitializationMode: 2
+  SafeMode: 3
+  Direction: 0
+  AutoChangeDirectionOnEnd: 0
+  AutoPlayOnStart: 0
+  AutoPlayOnEnable: 0
+  DurationMultiplier: 1
+  DisplayFullDurationDetails: 0
+  CooldownDuration: 0
+  InitialDelay: 0
+  CanPlayWhileAlreadyPlaying: 1
+  FeedbacksIntensity: 1
+  Events:
+    TriggerMMFeedbacksEvents: 0
+    TriggerUnityEvents: 1
+    OnPlay:
+      m_PersistentCalls:
+        m_Calls: []
+    OnPause:
+      m_PersistentCalls:
+        m_Calls: []
+    OnResume:
+      m_PersistentCalls:
+        m_Calls: []
+    OnRevert:
+      m_PersistentCalls:
+        m_Calls: []
+    OnComplete:
+      m_PersistentCalls:
+        m_Calls: []
   DebugActive: 0
 --- !u!114 &8873778925891918568
 MonoBehaviour:
@@ -9653,14 +9874,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Active: 1
   Label: Particles Play - Flames
+  Chance: 100
   Timing:
+    TimescaleMode: 0
     InitialDelay: 0
     CooldownDuration: 0
+    ExcludeFromHoldingPauses: 0
+    InterruptsOnStop: 1
     NumberOfRepeats: 0
     RepeatForever: 0
     DelayBetweenRepeats: 1
+    MMFeedbacksDirectionCondition: 0
+    PlayDirection: 0
+    ConstantIntensity: 0
+    UseIntensityInterval: 0
+    IntensityIntervalMin: 0
+    IntensityIntervalMax: 0
+    Sequence: {fileID: 0}
+    TrackID: 0
+    Quantized: 0
+    TargetBPM: 120
   DebugActive: 0
+  Mode: 0
   BoundParticleSystem: {fileID: 198000010717974420}
+  MoveToPosition: 0
+  RandomParticleSystems: []
 --- !u!114 &1399254874649120824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9675,14 +9913,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Active: 1
   Label: Particles Play - Shells
+  Chance: 100
   Timing:
+    TimescaleMode: 0
     InitialDelay: 0
     CooldownDuration: 0
+    ExcludeFromHoldingPauses: 0
+    InterruptsOnStop: 1
     NumberOfRepeats: 0
     RepeatForever: 0
     DelayBetweenRepeats: 1
+    MMFeedbacksDirectionCondition: 0
+    PlayDirection: 0
+    ConstantIntensity: 0
+    UseIntensityInterval: 0
+    IntensityIntervalMin: 0
+    IntensityIntervalMax: 0
+    Sequence: {fileID: 0}
+    TrackID: 0
+    Quantized: 0
+    TargetBPM: 120
   DebugActive: 0
+  Mode: 0
   BoundParticleSystem: {fileID: 198000014076486738}
+  MoveToPosition: 0
+  RandomParticleSystems: []
 --- !u!114 &7365020027144303199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9697,18 +9952,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Active: 1
   Label: Camera Shake
+  Chance: 100
   Timing:
+    TimescaleMode: 0
     InitialDelay: 0
     CooldownDuration: 0
+    ExcludeFromHoldingPauses: 0
+    InterruptsOnStop: 1
     NumberOfRepeats: 0
     RepeatForever: 0
     DelayBetweenRepeats: 1
+    MMFeedbacksDirectionCondition: 0
+    PlayDirection: 0
+    ConstantIntensity: 0
+    UseIntensityInterval: 0
+    IntensityIntervalMin: 0
+    IntensityIntervalMax: 0
+    Sequence: {fileID: 0}
+    TrackID: 0
+    Quantized: 0
+    TargetBPM: 120
   DebugActive: 0
+  RepeatUntilStopped: 0
   Channel: 0
   CameraShakeProperties:
     Duration: 0.2
     Amplitude: 1
     Frequency: 0.6
+    AmplitudeX: 0
+    AmplitudeY: 0
+    AmplitudeZ: 0
 --- !u!114 &85514345881160410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9723,12 +9996,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Active: 1
   Label: Flash
+  Chance: 100
   Timing:
+    TimescaleMode: 0
     InitialDelay: 0
     CooldownDuration: 0
+    ExcludeFromHoldingPauses: 0
+    InterruptsOnStop: 1
     NumberOfRepeats: 0
     RepeatForever: 0
     DelayBetweenRepeats: 1
+    MMFeedbacksDirectionCondition: 0
+    PlayDirection: 0
+    ConstantIntensity: 0
+    UseIntensityInterval: 0
+    IntensityIntervalMin: 0
+    IntensityIntervalMax: 0
+    Sequence: {fileID: 0}
+    TrackID: 0
+    Quantized: 0
+    TargetBPM: 120
   DebugActive: 0
   Channel: 0
   FlashColor: {r: 0.9866247, g: 1, b: 0, a: 1}
@@ -9745,6 +10032,7 @@ GameObject:
   m_Component:
   - component: {fileID: 905852444560217142}
   - component: {fileID: 2251207812961010051}
+  - component: {fileID: 3113131438179596686}
   m_Layer: 0
   m_Name: WeaponStartFeedback
   m_TagString: Untagged
@@ -9778,6 +10066,131 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841b72de2996c5c40bfb394f3d0e0a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Feedbacks: []
+  Feedbacks:
+  - {fileID: 3113131438179596686}
   InitializationMode: 2
+  SafeMode: 3
+  Direction: 0
+  AutoChangeDirectionOnEnd: 0
+  AutoPlayOnStart: 0
+  AutoPlayOnEnable: 0
+  DurationMultiplier: 1
+  DisplayFullDurationDetails: 0
+  CooldownDuration: 0
+  InitialDelay: 0
+  CanPlayWhileAlreadyPlaying: 1
+  FeedbacksIntensity: 1
+  Events:
+    TriggerMMFeedbacksEvents: 0
+    TriggerUnityEvents: 1
+    OnPlay:
+      m_PersistentCalls:
+        m_Calls: []
+    OnPause:
+      m_PersistentCalls:
+        m_Calls: []
+    OnResume:
+      m_PersistentCalls:
+        m_Calls: []
+    OnRevert:
+      m_PersistentCalls:
+        m_Calls: []
+    OnComplete:
+      m_PersistentCalls:
+        m_Calls: []
   DebugActive: 0
+--- !u!114 &3113131438179596686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4477487246383116946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c8acfc07fee664da6ad222b6541a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Active: 1
+  Label: MMSoundManager Sound
+  Chance: 100
+  Timing:
+    TimescaleMode: 0
+    InitialDelay: 0
+    CooldownDuration: 0
+    ExcludeFromHoldingPauses: 0
+    InterruptsOnStop: 1
+    NumberOfRepeats: 0
+    RepeatForever: 0
+    DelayBetweenRepeats: 1
+    MMFeedbacksDirectionCondition: 0
+    PlayDirection: 0
+    ConstantIntensity: 0
+    UseIntensityInterval: 0
+    IntensityIntervalMin: 0
+    IntensityIntervalMax: 0
+    Sequence: {fileID: 0}
+    TrackID: 0
+    Quantized: 0
+    TargetBPM: 120
+  DebugActive: 0
+  Sfx: {fileID: 8300000, guid: 0f20ff9bd989ac84c83208316ac920e7, type: 3}
+  RandomSfx: []
+  TestButton: 0
+  TestStopButton: 0
+  MinVolume: 1
+  MaxVolume: 1
+  MinPitch: 1
+  MaxPitch: 2
+  MmSoundManagerTrack: 0
+  ID: 0
+  AudioGroup: {fileID: 0}
+  RecycleAudioSource: {fileID: 0}
+  Loop: 0
+  Persistent: 0
+  DoNotPlayIfClipAlreadyPlaying: 0
+  Fade: 0
+  FadeInitialVolume: 0
+  FadeDuration: 1
+  FadeTween:
+    MMTweenDefinitionType: 0
+    MMTweenCurve: 9
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  SoloSingleTrack: 0
+  SoloAllTracks: 0
+  AutoUnSoloOnEnd: 0
+  PanStereo: 0
+  SpatialBlend: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  Priority: 0
+  ReverbZoneMix: 0
+  DopplerLevel: 0
+  Spread: 0
+  RolloffMode: 0
+  MinDistance: 0
+  MaxDistance: 0
