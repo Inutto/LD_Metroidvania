@@ -604,7 +604,7 @@ MonoBehaviour:
     Gravity: -15
     FallMultiplier: 1
     AscentMultiplier: 1
-    MaxVelocity: {x: 3.4028235e+38, y: 3.4028235e+38}
+    MaxVelocity: {x: 20, y: 20}
     SpeedAccelerationOnGround: 20
     UseSeparateDecelerationOnGround: 0
     SpeedDecelerationOnGround: 20
@@ -646,7 +646,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    Physics2DInteraction: 1
+    Physics2DInteraction: 0
     Physics2DPushForce: 2
     DrawRaycastsGizmos: 1
     DisplayWarnings: 1
@@ -672,9 +672,9 @@ MonoBehaviour:
   SafeSetTransform: 0
   AutomaticallySetPhysicsSettings: 0
   StandingOn: {fileID: 0}
-  UpdateMode: 0
-  NumberOfHorizontalRays: 5
-  NumberOfVerticalRays: 6
+  UpdateMode: 1
+  NumberOfHorizontalRays: 2
+  NumberOfVerticalRays: 2
   RayOffsetHorizontal: 0.05
   RayOffsetVertical: 0.05
   CrouchedRaycastLengthMultiplier: 1
@@ -929,7 +929,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8500577312218174532}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72de0b0360096ea41a18d17864ecb963, type: 3}
   m_Name: 
