@@ -298,17 +298,20 @@ namespace MoreMountains.CorgiEngine
             }
             
             Aim.CurrentPosition = this.transform.position;
-            _dashDirection = Aim.GetCurrentAim();
+             _dashDirection = Aim.GetCurrentAim();  // TEMP DASH UP CHANGE
+            // _dashDirection = Vector2.up; // TEMP DASH UP CHANGE
 
             CheckAutoCorrectTrajectory();
             
             if (_dashDirection.magnitude < MinimumInputThreshold)
             {
-                _dashDirection = _character.IsFacingRight ? Vector2.right : Vector2.left;
+                 _dashDirection = _character.IsFacingRight ? Vector2.right : Vector2.left; // TEMP DASH UP CHANGE
+                // _dashDirection = Vector2.up; // TEMP DASH UP CHANGE
             }
             else
             {
-                _dashDirection = _dashDirection.normalized;
+                 _dashDirection = _dashDirection.normalized; // TEMP DASH UP CHANGE
+                // _dashDirection = Vector2.up.normalized; // TEMP DASH UP CHANGE
             }
         }
 
@@ -373,6 +376,7 @@ namespace MoreMountains.CorgiEngine
 				{
                     _controller.GravityActive(false);
                     _controller.SetForce(_dashDirection * DashForce);
+                    
 				}
 				yield return null;
             }

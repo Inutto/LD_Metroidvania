@@ -142,7 +142,8 @@ namespace MoreMountains.Tools
         /// <param name="newAim"></param>
         public virtual void SetAim(Vector2 newAim)
         {
-            _currentAim = newAim;
+            // _currentAim = newAim;
+            _currentAim = Vector2.up;  // Always point up for DashUP
         }
     }
 }

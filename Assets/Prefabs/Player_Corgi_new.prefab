@@ -6569,7 +6569,7 @@ MonoBehaviour:
     Gravity: -30
     FallMultiplier: 1
     AscentMultiplier: 1
-    MaxVelocity: {x: 100, y: 20}
+    MaxVelocity: {x: 100, y: 40}
     SpeedAccelerationOnGround: 20
     UseSeparateDecelerationOnGround: 0
     SpeedDecelerationOnGround: 100
@@ -6759,35 +6759,35 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8779570709594126854}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2bb48ea7e7fc4c0fa43dce17235f4f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AbilityStartFeedbacks: {fileID: 0}
+  AbilityStartFeedbacks: {fileID: 8060117787538003046}
   AbilityStopFeedbacks: {fileID: 0}
   AbilityPermitted: 1
   BlockingMovementStates: 
   BlockingConditionStates: 
   DashDistance: 5
-  DashForce: 30
+  DashForce: 35
   ResetForcesOnExit: 1
   Aim:
-    AimControl: 2
+    AimControl: 1
     RotationMode: 2
-    MinimumAngle: -180
-    MaximumAngle: 180
+    MinimumAngle: 45
+    MaximumAngle: 135
     CurrentAngle: 0
   MinimumInputThreshold: 0.1
   FlipCharacterIfNeeded: 1
   AutoCorrectTrajectory: 1
-  DashCooldown: 1
+  DashCooldown: 0.5
   LimitedDashes: 1
   SuccessiveDashAmount: 1
   SuccessiveDashesLeft: 1
   SuccessiveDashResetMethod: 0
   SuccessiveDashResetDuration: 2
-  InvincibleWhileDashing: 0
+  InvincibleWhileDashing: 1
 --- !u!114 &8779570709587799728
 MonoBehaviour:
   m_ObjectHideFlags: 0
