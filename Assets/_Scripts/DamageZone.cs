@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MoreMountains.Tools;
 using MoreMountains.CorgiEngine;
+using MoreMountains.Feedbacks;
 
 public class DamageZone : MonoBehaviour
 {
@@ -12,10 +14,14 @@ public class DamageZone : MonoBehaviour
     public float damageApplySpeed = 3f;
     public bool isDamage;
 
+    [Header("Feedbacks")]
+    public MMFeedbacks DamageZoneFeedback;
+
 
     private void Start()
     {
         _collider = GetComponent<Collider2D>();
+        DamageZoneFeedback = GetComponent<MMFeedbacks>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,6 +29,7 @@ public class DamageZone : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             isDamage = true;
+            DamageZoneFeedback.PlayFeedbacks(); 
 
             var character = collision.gameObject.GetComponent<Character>();
             StartCoroutine(ApplyDamageToCharacter(character));
@@ -35,6 +42,7 @@ public class DamageZone : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             isDamage = false;
+            DamageZoneFeedback.StopFeedbacks();
 
         }
     }
