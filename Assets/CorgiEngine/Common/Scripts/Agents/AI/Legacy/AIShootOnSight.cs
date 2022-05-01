@@ -55,6 +55,7 @@ namespace MoreMountains.CorgiEngine
 
 			// determine the direction of the raycast 
 			_direction = (_character.IsFacingRight) ? transform.right : -transform.right;
+			
 						
 			// we cast a ray in front of the agent to check for a Player
 			_raycastOrigin.x = _character.IsFacingRight ? transform.position.x + RaycastOriginOffset.x : transform.position.x - RaycastOriginOffset.x;
