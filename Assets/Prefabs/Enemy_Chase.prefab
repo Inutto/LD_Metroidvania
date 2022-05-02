@@ -250,6 +250,7 @@ GameObject:
   - component: {fileID: 3922764376184845928}
   - component: {fileID: 3922764376184845931}
   - component: {fileID: 3922764376184845927}
+  - component: {fileID: 1736042282}
   m_Layer: 13
   m_Name: Enemy_Chase
   m_TagString: Untagged
@@ -887,6 +888,19 @@ MonoBehaviour:
   LockHandlesOnXAxis: 0
   LockHandlesOnYAxis: 0
   LockHandlesOnZAxis: 0
+--- !u!114 &1736042282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3922764376184845925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74f4e391045eb5428a630fb15fd8441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  limitY: -150
 --- !u!1 &6805629939238203387
 GameObject:
   m_ObjectHideFlags: 0

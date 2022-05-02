@@ -245,6 +245,7 @@ GameObject:
   - component: {fileID: 4279203791474888394}
   - component: {fileID: 4279203791474888403}
   - component: {fileID: 4279203791474888402}
+  - component: {fileID: 1812892137}
   m_Layer: 13
   m_Name: Enemy_Flying
   m_TagString: Untagged
@@ -363,8 +364,8 @@ MonoBehaviour:
   InitialFacingDirection: 1
   DirectionOnSpawn: 0
   CharacterAnimator: {fileID: 0}
-  UseDefaultMecanim: 1
-  PerformAnimatorSanityChecks: 1
+  UseDefaultMecanim: 0
+  PerformAnimatorSanityChecks: 0
   DisableAnimatorLogs: 0
   CharacterModel: {fileID: 0}
   CameraTarget: {fileID: 0}
@@ -798,6 +799,19 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &1812892137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4279203791474888406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74f4e391045eb5428a630fb15fd8441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  limitY: -150
 --- !u!1 &8351251298170805308
 GameObject:
   m_ObjectHideFlags: 0

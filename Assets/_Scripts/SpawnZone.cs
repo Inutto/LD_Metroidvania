@@ -5,12 +5,18 @@ using UnityEngine;
 public class SpawnZone : MonoBehaviour
 {
 
-    public enum SpawnType {ENEMY, PICKUP };
+    public enum SpawnType {ENEMY, PICKUP, BOSS};
 
     private Collider2D triggerArea;
     [Header("Prefab")]
     public GameObject enemy;
     public GameObject pickup;
+    public GameObject boss;
+
+
+    [Header("Boss Specific")]
+    public GameObject bossInstance;
+    public List<GameObject> wallList;
 
 
     [Header("Spawn Position")]
@@ -67,15 +73,25 @@ public class SpawnZone : MonoBehaviour
                 } else if (type == "Pickup")
                 {
                     prefab = pickup;
+                } else if (type == "Boss")
+                {
+                    prefab = boss;
                 }
 
                 // Inst
                 if(prefab != null)
                 {
                     var newSpawn = Instantiate(
-                    prefab,
-                    trans.position,
-                    trans.rotation);
+                            prefab,
+                            trans.position,
+                            trans.rotation);
+
+                    if(type == "Boss")
+                    {
+                        // Track boss stats
+                        OnBossStart(newSpawn);
+                        StartCoroutine(WaitUntilBossEnd());
+                    }
 
                     spawnsList.Add(newSpawn);
                 }
@@ -94,6 +110,45 @@ public class SpawnZone : MonoBehaviour
             spawnsList.Clear();
         }
     }
+
+    public void OnBossStart(GameObject _bossInstance)
+    {
+        bossInstance = _bossInstance;
+        foreach(var wall in wallList)
+        {
+            wall.SetActive(true);
+        }
+    }
+
+    public IEnumerator WaitUntilBossEnd()
+    {
+
+        // I really wish to add the listen at Enemy's end, but...
+        while (bossInstance.activeSelf != false)
+        {
+            yield return null;
+        }
+
+        // End
+        foreach (var wall in wallList)
+        {
+            wall.SetActive(false);
+        }
+        yield return null;
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
 
 #if UNITY_EDITOR
     /// <summary>
