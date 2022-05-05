@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MoreMountains.CorgiEngine;
 
 public class SpawnZone : MonoBehaviour
 {
@@ -122,13 +123,12 @@ public class SpawnZone : MonoBehaviour
 
     public IEnumerator WaitUntilBossEnd()
     {
+        Debug.Log("Wait for Boss dead");
+        yield return new WaitUntil(() => 
+            bossInstance.GetComponent<Character>().CharacterHealth.CurrentHealth <= 0);
 
-        // I really wish to add the listen at Enemy's end, but...
-        while (bossInstance.activeSelf != false)
-        {
-            yield return null;
-        }
 
+        Debug.Log("Boss has been defeated");
         // End
         foreach (var wall in wallList)
         {
