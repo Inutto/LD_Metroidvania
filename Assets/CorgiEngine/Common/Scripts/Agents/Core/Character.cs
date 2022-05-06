@@ -18,7 +18,9 @@ namespace MoreMountains.CorgiEngine
 	/// </summary>
 	[AddComponentMenu("Corgi Engine/Character/Core/Character")] 
 	public class Character : MonoBehaviour
-	{		
+	{
+
+		public Action OnPlayerRespawn;
 		/// the possible character types : player controller or AI (controlled by the computer)
 		public enum CharacterTypes { Player, AI }
 		/// the possible initial facing direction for your character
@@ -757,6 +759,8 @@ namespace MoreMountains.CorgiEngine
 				CharacterHealth.ResetHealthToMaxHealth();
 				CharacterHealth.Revive ();
 			}
+
+			OnPlayerRespawn?.Invoke();
 		}
 		
 		/// <summary>

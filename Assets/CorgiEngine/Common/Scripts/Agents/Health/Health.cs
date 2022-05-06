@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using MoreMountains.Tools;
 using MoreMountains.Feedbacks;
+using System;
 
 namespace MoreMountains.CorgiEngine
 {
@@ -159,6 +160,8 @@ namespace MoreMountains.CorgiEngine
         protected CharacterPersistence _characterPersistence = null;
         protected MaterialPropertyBlock _propertyBlock;
         protected bool _hasColorProperty = false;
+
+        public Action OnRevive_Extra;
 
         /// <summary>
         /// On Start, we initialize our health
@@ -532,6 +535,8 @@ namespace MoreMountains.CorgiEngine
             {
                 OnRevive.Invoke();
             }
+
+            OnRevive_Extra?.Invoke();
         }
 
         /// <summary>

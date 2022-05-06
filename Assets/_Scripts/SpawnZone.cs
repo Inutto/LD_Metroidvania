@@ -17,6 +17,7 @@ public class SpawnZone : MonoBehaviour
 
     [Header("Boss Specific")]
     public GameObject bossInstance;
+    public GameObject playerInstance;
     public List<GameObject> wallList;
 
 
@@ -60,6 +61,13 @@ public class SpawnZone : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
+            // If Already exit a boss, ignore all
+            if (bossInstance != null) return;
+
+            // Add Player Instance to track death
+            playerInstance = collision.gameObject;
+            playerInstance.GetComponent<Health>().OnDeath += ResetZone;
+
             foreach(var info in spawnInfoDic)
             {
                 // Initialize Info
@@ -104,41 +112,78 @@ public class SpawnZone : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            foreach(var spawn in spawnsList)
-            {
-                if (spawn != null) Destroy(spawn);
-            }
-            spawnsList.Clear();
+
+            // If Boss Still Alive, don't kill the boss because leave the zone
+            if (bossInstance != null) return;
+
+            ResetZone();
         }
     }
 
+    void ResetZone()
+    {
+        // Clear Spawns
+        foreach (var spawn in spawnsList)
+        {
+            if (spawn != null) Destroy(spawn);
+        }
+        spawnsList.Clear();
+
+        // Clear Walls
+        DisableWalls();
+        
+    }
+
+
     public void OnBossStart(GameObject _bossInstance)
     {
+        if (bossInstance != null) return; 
         bossInstance = _bossInstance;
-        foreach(var wall in wallList)
-        {
-            wall.SetActive(true);
-        }
+
+
+        EnableWalls();
     }
 
     public IEnumerator WaitUntilBossEnd()
     {
         Debug.Log("Wait for Boss dead");
         yield return new WaitUntil(() => 
-            bossInstance.GetComponent<Character>().CharacterHealth.CurrentHealth <= 0);
+            bossInstance?.GetComponent<Character>().CharacterHealth.CurrentHealth <= 0);
 
 
         Debug.Log("Boss has been defeated");
+
+
         // End
-        foreach (var wall in wallList)
-        {
-            wall.SetActive(false);
-        }
+        DisableWalls();
+
+
+        // Disable this zone
+        gameObject.SetActive(false);
         yield return null;
 
 
 
     }
+
+    void DisableWalls()
+    {
+        foreach (var wall in wallList)
+        {
+            if(wall != null) wall.SetActive(false);
+        }
+    }
+
+    void EnableWalls()
+    {
+        foreach (var wall in wallList)
+        {
+            if (wall != null) wall.SetActive(true);
+        }
+    }
+
+    
+
 
 
 
