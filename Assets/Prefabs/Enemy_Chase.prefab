@@ -388,16 +388,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   DamageCaused: 10
-  DamageCausedKnockbackType: 1
+  DamageCausedKnockbackType: 2
   DamageCausedKnockbackDirection: 0
-  DamageCausedKnockbackForce: {x: 10, y: 2}
+  DamageCausedKnockbackForce: {x: 25, y: 2}
   InvincibilityDuration: 0.5
   DamageTakenEveryTime: 0
   DamageTakenDamageable: 0
   DamageTakenNonDamageable: 0
-  DamageTakenKnockbackType: 0
+  DamageTakenKnockbackType: 2
   DamageTakenKnockbackDirection: 0
-  DamageTakenKnockbackForce: {x: 0, y: 0}
+  DamageTakenKnockbackForce: {x: 25, y: 10}
   DamageTakenInvincibilityDuration: 0.5
   HitDamageableFeedback: {fileID: 0}
   HitNonDamageableFeedback: {fileID: 0}
@@ -593,7 +593,7 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   FlySpeed: 3
-  AlwaysFlying: 1
+  AlwaysFlying: 0
   StopFlyingOnDeath: 1
 --- !u!114 &4026812194256025533
 MonoBehaviour:

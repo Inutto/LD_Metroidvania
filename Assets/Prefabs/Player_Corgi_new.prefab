@@ -10851,7 +10851,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4555490791335624964}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -12697,7 +12697,7 @@ PrefabInstance:
     - target: {fileID: 3224487533805007248, guid: 47a59218d249c974f850ceb62dd559ac,
         type: 3}
       propertyPath: Knockback
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3224487533805007248, guid: 47a59218d249c974f850ceb62dd559ac,
         type: 3}
@@ -12713,6 +12713,11 @@ PrefabInstance:
         type: 3}
       propertyPath: KnockbackForce.x
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224487533805007248, guid: 47a59218d249c974f850ceb62dd559ac,
+        type: 3}
+      propertyPath: KnockbackForce.y
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3224487533805007248, guid: 47a59218d249c974f850ceb62dd559ac,
         type: 3}
