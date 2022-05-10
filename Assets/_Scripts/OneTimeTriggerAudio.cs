@@ -20,7 +20,7 @@ public class OneTimeTriggerAudio : MonoBehaviour
         _as.loop = false;
         _as.Play(); 
 
-        checkpointText.SetActive(true);
+        if(checkpointText) checkpointText.SetActive(true);
 
     }
 

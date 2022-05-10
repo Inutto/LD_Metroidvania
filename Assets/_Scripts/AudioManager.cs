@@ -43,6 +43,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource bossBGM;
     public AudioSource mainBGM;
     public AudioSource bossDefeatBGM;
+    public AudioSource bossDefeatSpecialAudio;
 
     // Fade AudioSource
     public static IEnumerator FadeOutAudioSource(AudioSource audioSource, float FadeTime)
@@ -57,8 +58,8 @@ public class AudioManager : MonoBehaviour
             yield return null;
         }
 
-        // audioSource.Stop();
-        audioSource.volume = startVolume;
+        audioSource.Stop();
+        // audioSource.volume = startVolume;
     }
 
     public static IEnumerator FadeInAudioSource(AudioSource audioSource, float FadeTime)
@@ -87,22 +88,42 @@ public class AudioManager : MonoBehaviour
     public void OnEndBoss()
     {
         StartCoroutine(FadeInAudioSource(bossDefeatBGM, 0.1f));
-        StartCoroutine(FadeOutAudioSource(bossBGM, 0.3f));
-        GetComponent<OneTimeTriggerAudio>().PlayEventAudio();
+        StartCoroutine(FadeOutAudioSource(bossBGM, 1f));
+        bossDefeatSpecialAudio.Play();
+        StartCoroutine(AfterEndBoss());
         
     }
 
     IEnumerator AfterEndBoss()
     {
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(3.0f);
         StartCoroutine(FadeInAudioSource(mainBGM, 2f));
         StartCoroutine(FadeOutAudioSource(bossDefeatBGM, 2f));
+
+        yield return new WaitForSeconds(5f);
+        mainBGM.volume = 1f;
+        StopAllCoroutines();
+
+        Debug.Log("Stop At After End Boss");
     }
 
     public void OnFailBoss()
     {
+        Debug.Log("On Fail Boss");
         StartCoroutine(FadeInAudioSource(mainBGM, 2f));
         StartCoroutine(FadeOutAudioSource(bossBGM, 2f));
+
+        StartCoroutine(AfterFailBoss());
+        
     }
+
+    IEnumerator AfterFailBoss()
+    {
+        yield return new WaitForSeconds(4.0f);
+        StopAllCoroutines();
+        Debug.Log("Stop At After Fail Boss");
+    }
+
+
     
 }

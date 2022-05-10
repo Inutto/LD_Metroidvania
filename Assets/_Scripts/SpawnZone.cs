@@ -71,7 +71,7 @@ public class SpawnZone : MonoBehaviour
 
             // Add Player Instance to track death
             playerInstance = collision.gameObject;
-            playerInstance.GetComponent<Health>().OnDeath += ResetZone;
+            playerInstance.GetComponent<Health>().OnDeath = ResetZone;
 
             foreach(var info in spawnInfoDic)
             {
@@ -121,6 +121,9 @@ public class SpawnZone : MonoBehaviour
             // If Boss Still Alive, don't kill the boss because leave the zone
             if (bossInstance != null) return;
 
+            // If there is a player's dead body, also ignore
+            if (isBossRoom && collision.gameObject.GetComponent<Health>().CurrentHealth <= 0) return;
+
             ResetZone();
         }
     }
@@ -133,6 +136,9 @@ public class SpawnZone : MonoBehaviour
             if (spawn != null) Destroy(spawn);
         }
         spawnsList.Clear();
+
+        // Clear Boss
+        bossInstance = null;
 
         // Clear Walls
         DisableWalls();
