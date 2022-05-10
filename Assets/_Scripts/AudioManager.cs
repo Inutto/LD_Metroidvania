@@ -43,8 +43,6 @@ public class AudioManager : MonoBehaviour
     public AudioSource bossBGM;
     public AudioSource mainBGM;
     public AudioSource bossDefeatBGM;
-    
-
 
     // Fade AudioSource
     public static IEnumerator FadeOutAudioSource(AudioSource audioSource, float FadeTime)
@@ -88,9 +86,9 @@ public class AudioManager : MonoBehaviour
 
     public void OnEndBoss()
     {
-        StartCoroutine(FadeInAudioSource(bossDefeatBGM, 2f));
-        StartCoroutine(FadeOutAudioSource(bossBGM, 2f));
-
+        StartCoroutine(FadeInAudioSource(bossDefeatBGM, 0f));
+        StartCoroutine(FadeOutAudioSource(bossBGM, 0.3f));
+        GetComponent<OneTimeTriggerAudio>().PlayEventAudio();
         
     }
 

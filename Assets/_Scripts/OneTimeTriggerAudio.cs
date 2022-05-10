@@ -6,14 +6,22 @@ public class OneTimeTriggerAudio : MonoBehaviour
 {
 
     public AudioClip audioClip;
+    bool hasPlayed = false;
+
+    public GameObject checkpointText;
 
     public void PlayEventAudio()
     {
-        var _as = gameObject.AddComponent<AudioSource>();
+        if (hasPlayed) return;
+
+        hasPlayed = true;
+        var _as = AudioManager.Instance.gameObject.AddComponent<AudioSource>();
         _as.clip = audioClip;
         _as.loop = false;
-        _as.Play();
-           
+        _as.Play(); 
+
+        checkpointText.SetActive(true);
+
     }
 
 
