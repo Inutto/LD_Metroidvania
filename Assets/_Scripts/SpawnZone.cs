@@ -17,6 +17,7 @@ public class SpawnZone : MonoBehaviour
 
 
     [Header("Boss Specific")]
+    public bool isBossRoom;
     public GameObject bossInstance;
     public GameObject playerInstance;
     public List<GameObject> wallList;
@@ -135,6 +136,11 @@ public class SpawnZone : MonoBehaviour
 
         // Clear Walls
         DisableWalls();
+
+        if (isBossRoom)
+        {
+            AudioManager.Instance.OnFailBoss();
+        }
         
     }
 
@@ -144,7 +150,7 @@ public class SpawnZone : MonoBehaviour
         if (bossInstance != null) return; 
         bossInstance = _bossInstance;
 
-
+        AudioManager.Instance.OnStartBoss();
         EnableWalls();
     }
 
@@ -159,6 +165,7 @@ public class SpawnZone : MonoBehaviour
 
 
         // End
+        AudioManager.Instance.OnEndBoss();
         DisableWalls();
 
         // Show The BossText UI
@@ -173,12 +180,8 @@ public class SpawnZone : MonoBehaviour
         }
 
 
-
         // Disable this zone
         gameObject.SetActive(false);
-      
-
-
 
     }
 

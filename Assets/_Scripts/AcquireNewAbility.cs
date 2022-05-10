@@ -36,6 +36,8 @@ public class AcquireNewAbility : MonoBehaviour
 
             // Give a Text
             abilityUI.SetActive(true);
+
+            GetComponent<OneTimeTriggerAudio>().PlayEventAudio();
         }
     }
 
