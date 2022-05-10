@@ -57,7 +57,7 @@ public class AudioManager : MonoBehaviour
             yield return null;
         }
 
-        audioSource.Stop();
+        // audioSource.Stop();
         audioSource.volume = startVolume;
     }
 
@@ -86,7 +86,7 @@ public class AudioManager : MonoBehaviour
 
     public void OnEndBoss()
     {
-        StartCoroutine(FadeInAudioSource(bossDefeatBGM, 0f));
+        StartCoroutine(FadeInAudioSource(bossDefeatBGM, 0.1f));
         StartCoroutine(FadeOutAudioSource(bossBGM, 0.3f));
         GetComponent<OneTimeTriggerAudio>().PlayEventAudio();
         
