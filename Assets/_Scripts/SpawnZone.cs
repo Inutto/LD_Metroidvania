@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.CorgiEngine;
+using UnityEngine.UI;
 
 public class SpawnZone : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class SpawnZone : MonoBehaviour
     public GameObject bossInstance;
     public GameObject playerInstance;
     public List<GameObject> wallList;
+    public GameObject bossText;
+    public string bossTextContent;
+    
 
 
     [Header("Spawn Position")]
@@ -157,13 +161,31 @@ public class SpawnZone : MonoBehaviour
         // End
         DisableWalls();
 
+        // Show The BossText UI
+        if (bossText != null)
+        {
+            Debug.Log("Set Boss Text True");
+            bossText.SetActive(true);
+            UpdateTextContent(bossText);
+        } else
+        {
+            Debug.Log("Null Boss Reference");
+        }
+
+
 
         // Disable this zone
         gameObject.SetActive(false);
-        yield return null;
+      
 
 
 
+    }
+
+    void UpdateTextContent(GameObject targetObject)
+    {
+        var textComponent = targetObject.GetComponent<Text>();
+        textComponent.text = bossTextContent;
     }
 
     void DisableWalls()

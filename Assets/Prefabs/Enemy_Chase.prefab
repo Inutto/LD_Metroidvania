@@ -593,7 +593,7 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   FlySpeed: 3
-  AlwaysFlying: 0
+  AlwaysFlying: 1
   StopFlyingOnDeath: 1
 --- !u!114 &4026812194256025533
 MonoBehaviour:

@@ -31,7 +31,16 @@ public class DamageZone : MonoBehaviour
             isDamage = true;
             DamageZoneFeedback.PlayFeedbacks(); 
 
+
+            // Let Player Also Play Some Feedback
+            var health = collision.gameObject.GetComponent<Health>();
+            health.DamageFeedbacks.PlayFeedbacks();
+
+
+
             var character = collision.gameObject.GetComponent<Character>();
+
+            
             StartCoroutine(ApplyDamageToCharacter(character));
 
         }

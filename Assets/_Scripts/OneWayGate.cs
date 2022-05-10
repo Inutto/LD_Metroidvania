@@ -43,12 +43,10 @@ public class OneWayGate : MonoBehaviour
 
             _anim.SetTrigger("Open");
 
-            // Play the Audio
-            // _as.Play();
             gateOpenSound?.PlayFeedbacks();
 
-            // Delete the gameobject when audio is finished
-            // StartCoroutine(WaitForAudio());
+            HiddenIndicator.Instance.UpdateCurrentNum();
+
         }
     }
 
